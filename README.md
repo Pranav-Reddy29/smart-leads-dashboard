@@ -101,8 +101,16 @@ https://github.com/Pranav-Reddy29/smart-leads-dashboard
 ```bash
 smart-leads-dashboard/
 │
-├── client/
-├── server/
+├── client/                 # Frontend Application
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── server/                 # Backend Application
+│   ├── src/
+│   ├── dist/
+│   └── package.json
+│
 ├── README-assets/
 │   ├── login.png
 │   ├── dashboard.png
