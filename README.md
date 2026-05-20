@@ -101,17 +101,18 @@ https://github.com/Pranav-Reddy29/smart-leads-dashboard
 ```bash
 smart-leads-dashboard/
 │
-├── client/                 # Frontend Application
-│   ├── src/
-│   ├── public/
-│   └── package.json
+├── client/
+├── server/
+├── README-assets/
+│   ├── login.png
+│   ├── dashboard.png
+│   ├── dark-mode.png
+│   ├── lead-details.png
+│   └── edit-lead.png
 │
-├── server/                 # Backend Application
-│   ├── src/
-│   ├── dist/
-│   └── package.json
-│
-└── README.md
+├── README.md
+├── .gitignore
+└── docker-compose.yml
 ```
 
 ---
