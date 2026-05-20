@@ -5,7 +5,6 @@ import type {
 } from "express";
 import jwt from "jsonwebtoken";
 
-import { env } from "../config/env";
 import Organization from "../models/organization.model";
 import User from "../models/user.model";
 import { AppError } from "../utils/appError";
@@ -37,7 +36,7 @@ export const protect = async (
 
     const decoded = jwt.verify(
       token,
-      env.JWT_SECRET
+      process.env.JWT_SECRET as string
     ) as JwtPayload;
 
     const user = await User.findOne({

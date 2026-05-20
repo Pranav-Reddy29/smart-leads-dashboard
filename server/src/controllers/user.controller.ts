@@ -10,7 +10,6 @@ import {
   createInvitationToken,
   hashToken,
 } from "../utils/token";
-import { env } from "../config/env";
 
 export const getUsers = asyncHandler(
   async (req: Request, res: Response) => {
@@ -92,7 +91,7 @@ export const inviteUser = asyncHandler(
         ),
       });
 
-    const inviteUrl = `${env.CLIENT_URL}/accept-invite/${rawToken}`;
+    const inviteUrl = `${process.env.CLIENT_URL}/accept-invite/${rawToken}`;
     const deliveryStatus =
       await sendInvitationEmail({
         recipientEmail: normalizedEmail,

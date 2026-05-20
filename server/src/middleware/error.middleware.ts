@@ -6,7 +6,6 @@ import type {
 import mongoose from "mongoose";
 import { ZodError } from "zod";
 
-import { env } from "../config/env";
 import { AppError } from "../utils/appError";
 
 export const notFoundHandler = (
@@ -57,7 +56,7 @@ export const errorHandler = (
   }
 
   const message =
-    env.NODE_ENV === "production"
+    process.env.NODE_ENV === "production"
       ? "Internal server error"
       : error.message;
 

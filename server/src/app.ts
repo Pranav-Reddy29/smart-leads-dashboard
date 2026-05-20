@@ -11,17 +11,16 @@ import {
   errorHandler,
   notFoundHandler,
 } from "./middleware/error.middleware";
-import { env } from "./config/env";
 
 const app = express();
 
 app.use(
   cors({
-    origin: env.CLIENT_URL,
+    origin: process.env.CLIENT_URL,
   })
 );
 app.use(helmet());
-app.use(morgan(env.NODE_ENV === "production" ? "combined" : "dev"));
+app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
 app.use(express.json());
 
 app.get("/health", (_req, res) => {

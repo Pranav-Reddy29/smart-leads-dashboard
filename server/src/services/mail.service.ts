@@ -2,7 +2,6 @@
 // resolves this package more reliably in CommonJS mode.
 const nodemailer = require("nodemailer");
 
-import { env } from "../config/env";
 
 type DeliveryStatus =
   | "sent"
@@ -11,21 +10,21 @@ type DeliveryStatus =
 
 const isSmtpConfigured = () =>
   Boolean(
-    env.SMTP_HOST &&
-      env.SMTP_PORT &&
-      env.SMTP_USER &&
-      env.SMTP_PASS &&
-      env.SMTP_FROM_EMAIL
+    process.env.SMTP_HOST &&
+      process.env.SMTP_PORT &&
+      process.env.SMTP_USER &&
+      process.env.SMTP_PASS &&
+      process.env.SMTP_FROM_EMAIL
   );
 
 const createTransporter = () =>
   nodemailer.createTransport({
-    host: env.SMTP_HOST,
-    port: env.SMTP_PORT,
-    secure: env.SMTP_SECURE,
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    secure: process.env.SMTP_SECURE,
     auth: {
-      user: env.SMTP_USER,
-      pass: env.SMTP_PASS,
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
     },
   });
 
@@ -50,7 +49,7 @@ export const sendInvitationEmail = async ({
     const transporter = createTransporter();
 
     await transporter.sendMail({
-      from: `${env.SMTP_FROM_NAME} <${env.SMTP_FROM_EMAIL}>`,
+      from: `${process.env.SMTP_FROM_NAME} <${process.env.SMTP_FROM_EMAIL}>`,
       to: recipientEmail,
       subject: `You're invited to join ${organizationName} on Smart Leads`,
       text: [
