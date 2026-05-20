@@ -7,7 +7,7 @@ import Invitation from "../models/invitation.model";
 import User from "../models/user.model";
 import { AppError } from "../utils/appError";
 import { asyncHandler } from "../utils/asyncHandler";
-import { generateToken } from "../utils/generateToken";
+import generateToken from "../utils/generateToken";
 import { sendSuccess } from "../utils/response";
 import { toSlug } from "../utils/slug";
 import { hashToken } from "../utils/token";

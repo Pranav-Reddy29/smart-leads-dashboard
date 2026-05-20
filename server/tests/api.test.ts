@@ -29,7 +29,7 @@ describe("Smart Leads API", () => {
   });
 
   beforeEach(async () => {
-    await mongoose.connection.db.dropDatabase();
+    await mongoose.connection.dropDatabase();
   });
 
   afterAll(async () => {
